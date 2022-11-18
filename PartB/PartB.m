@@ -9,7 +9,7 @@ f = V0 - 2*V0.*t/T;
 
 
 
-max_harmonics = 10;
+max_harmonics = 5;
 a = zeros(1, max_harmonics);
 b = zeros(1, max_harmonics);
 synth_triang = zeros(size(t));
@@ -18,13 +18,16 @@ for n = 1:max_harmonics
     synth_triang = synth_triang + b(n) * sin(n * omega * t); 
 end
 
+figure
+c(n) = sqrt(a(n)^2+b(n)^2);
+stem(c);
 t = linspace(0, 3*T, 3*10000);
 synth_triang = repmat(synth_triang, 1, 3);
 f = repmat(f,1,3);
 figure
-plot(t,f,'b-')
-hold on;
-plot(t, synth_triang, 'r-');
-% plot(t, synth_triang, 'b-');
+% plot(t,f,'b-')
+% hold on;
+% plot(t, synth_triang, 'r-');
+plot(t, synth_triang, 'b-');
 
 title(['Waveforms synthesised by ' ,num2str(max_harmonics), ' harmonic under f_{0}=1 and V_{0}=1']);
