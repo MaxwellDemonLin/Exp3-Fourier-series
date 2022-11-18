@@ -10,8 +10,8 @@ a = zeros(1, max_harmonics);
 b = zeros(1, max_harmonics);
 synth_triang = zeros(size(t));
 
-f(t<=T/2) = V;
-f(t>T/2) =  -V;
+ideal_fun(t<=T/2) = V;
+ideal_fun(t>T/2) =  -V;
 
 for n = 1 : max_harmonics
     b(n)= 1/(2*n-1);
@@ -21,9 +21,9 @@ max_synth = max(synth_triang);
 overshoot = (max_synth-V)/V;
 t = linspace(0, 3*T, 3*100000);
 synth_triang = repmat(synth_triang, 1, 3);
-f = repmat(f,1,3);
+ideal_fun = repmat(ideal_fun,1,3);
 figure
 plot(t, synth_triang, 'r--');
 hold on;
-plot(t,f,'b-');
+plot(t,ideal_fun,'b-');
 title(['Waveforms synthesised by ' ,num2str(max_harmonics), ' harmonic under f_{0}=1 and V_{0}=1']);
