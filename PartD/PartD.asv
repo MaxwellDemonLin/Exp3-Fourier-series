@@ -65,6 +65,6 @@ figure
 plot(t, synth_triang_fliterc, 'r--');
 hold on;
 plot(t,ideal_fun,'b-');
-legend('Synthesised square waveform','Ideal square waveform');
+legend('Ideal square waveform','Synthesised square waveform');
 title(['Waveforms synthesised by ' ,num2str(max_harmonics), ' harmonic under f_{0}=1000']);
 axis([-inf inf -1.5 1.5])

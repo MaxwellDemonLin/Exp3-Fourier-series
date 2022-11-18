@@ -20,8 +20,8 @@ figure
 plot(clipped_t2,clipped_wave2);
 title('Waveform of harmonics 2 $10sin(2\pi 2f_{0}t)$','Interpreter','latex');
 xlabel('t');
-%harmonics3 = amplitude * sin(2*pi*f0*t*3);
-harmonics3 = amplitude * sin(2*pi*f0*t*3-pi/2);
+harmonics3 = amplitude * sin(2*pi*f0*t*3);
+%harmonics3 = amplitude * sin(2*pi*f0*t*3-pi/2);
 clipped_t3 = t(1:find(t <= T_max/(3*f0), 1, 'last'));
 clipped_wave3 = harmonics3(1:find(t <= T_max/(3*f0), 1, 'last'));
 figure
