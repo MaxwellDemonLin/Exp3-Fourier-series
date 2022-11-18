@@ -16,13 +16,10 @@ synth_triang = zeros(size(t));
 % for n = 1 : max_harmonics
 %     synth_triang = synth_triang + V0*(1/(2*n-1))*sin(2*pi*(2*n-1)*f0*t-((2*n-1)*pi)/2);
 % end
-
-% for n = 1 : max_harmonics
-%     synth_triang = synth_triang + V0*(1/(2*n-1))*sin(2*pi*(2*n-1)*f0*t-pi/2);
-% end
-
+for n = 1 : max_harmonics
+    synth_triang = synth_triang + V0*(1/(2*n-1))*sin(2*pi*(2*n-1)*f0*t-pi/2);
+end
 synth_triang = V0*(sin(3*omega*t-3*pi/2)/6+sin(5*omega*t-5*pi/2)/5+sin(7*omega*t-7*pi/2)/7+sin(9*omega*t-9*pi/2)/18);
-
 max_synth = max(synth_triang);
 overshoot = (max_synth-V)/V;
 t = linspace(0, 3*T, 3*100000);
